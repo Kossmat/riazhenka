@@ -15,4 +15,6 @@ public class Person extends Model{
 
     public String name;
 
+    public int age;
+
 }

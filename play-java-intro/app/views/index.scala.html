@@ -2,6 +2,13 @@
 
 @main("Welcome to Play") {
 
-    @message
+      <h3>  @message </h3>
+
+    <form action="@routes.Application.addPerson()" method="post">
+        Name: <input type="text" name="name" style="margin: 3px;"/> <br/>
+        Age: <input type="number" name="age" style="width: 40px;margin: 3px;"/> <br/>
+        <button style="margin: 3px;">Add</button>
+    </form>
+
 
 }

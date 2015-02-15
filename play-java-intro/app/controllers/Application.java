@@ -2,9 +2,14 @@ package controllers;
 
 import models.Person;
 import play.data.Form;
+import play.db.ebean.Model;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
+
+import java.util.List;
+
+import static play.libs.Json.toJson;
 
 
 public class Application extends Controller {
@@ -15,7 +20,7 @@ public class Application extends Controller {
 
     }
 
-    public static Result test(){
+    public static Result addPerson(){
 
         //return ok(test.render("hello"));
         Person person = Form.form(Person.class).bindFromRequest().get();
@@ -23,5 +28,11 @@ public class Application extends Controller {
         return redirect(routes.Application.index());
 
     }
+
+    public static Result getPersons(){
+        List<Person> persons = new Model.Finder(String.class, Person.class).all();
+        return ok(toJson(persons));
+    }
+
 
 }
