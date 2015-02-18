@@ -2,3 +2,16 @@ run
 exit
 run
 exit
+run
+exit
+run
+play clean
+clean
+run
+play clean
+clean
+run
+clean
+run
+clean
+run

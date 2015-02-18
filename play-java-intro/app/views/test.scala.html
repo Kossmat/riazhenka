@@ -1,0 +1,156 @@
+@(message: String, model: List[String], queryResult: List[String])
+
+@main("Welcome to Play") {
+
+<script src="@routes.Assets.at("javascripts/Guriddo_jqGrid_JS_4.7.1/js/jquery-1.11.0.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/Guriddo_jqGrid_JS_4.7.1/js/jquery.jqGrid.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/jquery-ui-1.11.3.custom/jquery-ui.js")" type="text/javascript"></script>
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/ui.jqgrid.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("javascripts/jquery-ui-1.11.3.custom/jquery-ui.css")">
+
+
+    <h3>  @message </h3>
+
+    <select id="selectTable">
+    @for(i <- model){
+        <option>@i</option>
+    }
+    </select>
+
+    <table id="list"></table>
+    <div id="pager"></div>
+
+    <form action="@routes.Admin.adminSQL()" method="post">
+        <textarea id="sql query" cols="100" rows="3" name="query">select * from Person</textarea>
+        <br/>
+        <button id="runSqlSearch">search</button>
+    </form>
+
+    <table id="result" border="2">
+        @for(row <- queryResult){
+            <tr>
+                @for(column <- row.split(";")){
+                    <td>@column</td>
+                }
+            </tr>
+        }
+    </table>
+
+
+    <script>
+
+        function getRolls(){
+            var a = '@controllers.Admin.getRolls()';
+            a = a.replace(/&quot;/g,'"');
+            var objs = $.parseJSON(a);
+            return objs;
+        }
+
+        function getPersons(){
+            var a = '@controllers.Admin.getPersons()';
+            a = a.replace(/&quot;/g,'"');
+            var objs = $.parseJSON(a);
+            return objs;
+        }
+
+        function loadGridRolls(Id, data){
+
+            jQuery("#"+Id+"").jqGrid({
+                datatype: "local",
+                //height: 250,
+                colNames:['Actions','Id','name', 'description', 'weight'],
+                colModel:[
+                    {name: 'act', index: 'act', width: 75},
+                    {name:'Id',index:'id', width:60},
+                    {name:'name',index:'name', width:100, editable:true},
+                    {name:'description',index:'description', editable:true},
+                    {name:'weight',index:'weight', width:80, align:"right",sorttype:"float", editable:true},
+                ],
+                gridComplete: function(){
+                    var ids = $("#"+Id+"").jqGrid('getDataIDs');
+                    for(var i=0;i < ids.length;i++){
+                        var cl = ids[i];
+                        be = "<input style='height:22px;width:20px;' type='button' value='E' onclick=\"$('#list').editRow('"+cl+"');\"  />";
+                        se = "<input style='height:22px;width:20px;' type='button' value='C' onclick=\"$('#list').restoreRow('"+cl+"');\"  />";
+                        $("#"+Id+"").jqGrid('setRowData',ids[i],{act:be+se});
+                    }
+                },
+                viewrecords: true,
+                multiselect: false,
+            });
+
+            for(var i=0;i<=data.length;i++){
+                jQuery("#"+Id+"").jqGrid('addRowData', i, data[i]);
+            }
+        }
+
+        function loadGridPersons(Id, data){
+            var lastsel;
+            jQuery("#"+Id+"").jqGrid({
+                datatype: "local",
+                //height: 250,
+                colNames:['Actions','Id','name', 'age'],
+                colModel:[
+                    {name: 'act', index: 'act', width: 75},
+                    {name:'Id',index:'id', width:60},
+                    {name:'name',index:'name', width:100, editable:true},
+                    {name:'age',index:'age', editable:true},
+                ],
+                gridComplete: function(){
+                    var ids = $("#"+Id+"").jqGrid('getDataIDs');
+                    for(var i=0;i < ids.length;i++){
+                        var cl = ids[i];
+                        be = "<input style='height:22px;width:20px;' type='button' value='E' onclick=\"$('#list').editRow('"+cl+"');\"  />";
+                        se = "<input style='height:22px;width:20px;' type='button' value='C' onclick=\"$('#list').restoreRow('"+cl+"');\"  />";
+                        $("#"+Id+"").jqGrid('setRowData',ids[i],{act:be+se});
+                    }
+                },
+  //TODO    //    onSelectRow: function(id){
+            //        if(id && id!==lastsel){
+            //            jQuery("#"+Id+"").jqGrid('restoreRow',lastsel);
+            //            jQuery("#"+Id+"").jqGrid('editRow',id,true);
+            //            lastsel=id;
+            //        }
+            //    },
+                viewrecords: true,
+                multiselect: false,
+            });
+
+            for(var i=0;i<=data.length;i++){
+                jQuery("#"+Id+"").jqGrid('addRowData', i, data[i]);
+            }
+
+            //jQuery("#"+Id+"").jqGrid('navGrid',"#pager",{edit:false,add:false,del:false});
+        }
+
+        jQuery().ready(function (){
+
+            $('#selectTable').on('change', function(what){
+
+                $("#list").jqGrid('GridUnload');
+
+                var select = $('#selectTable').val();
+
+                if(select == 'class models.Roll'){
+
+                    var rollsFromController = getRolls();
+
+                    loadGridRolls('list', rollsFromController);
+
+                }else if(select == 'class models.Person'){
+
+                    var personsFromController = getPersons();
+
+                    loadGridPersons('list', personsFromController);
+
+                }
+
+
+            });
+
+
+	    });
+    </script>
+
+
+}

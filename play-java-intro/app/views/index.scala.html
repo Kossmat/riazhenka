@@ -1,14 +1,29 @@
-@(message: String)
+@(message: String, content: List[Map[String,String]])
 
 @main("Welcome to Play") {
 
-      <h3>  @message </h3>
+    <h2>@message</h2>
 
-    <form action="@routes.Application.addPerson()" method="post">
-        Name: <input type="text" name="name" style="margin: 3px;"/> <br/>
-        Age: <input type="number" name="age" style="width: 40px;margin: 3px;"/> <br/>
-        <button style="margin: 3px;">Add</button>
-    </form>
-
+    @for(item <- content){
+        <div>
+            <section>
+                <figure>
+                    <img src="img/u42.png" alt="">
+                    <figcaption>
+                        <h3>@item.get("name")</h3>
+                        <p>@item.get("description")</p>
+                        <button>
+                            <h5>
+                                Купить
+                                <span class="price">
+                                    200rub
+                                </span>
+                            </h5>
+                        </button>
+                    </figcaption>
+                </figure>
+            </section>
+        </div>
+    }
 
 }

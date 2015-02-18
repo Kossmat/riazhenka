@@ -20,43 +20,57 @@ import play.mvc.Http.Context.Implicit._
 import views.html._
 
 /**/
-object index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[String,List[Map[String, String]],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(message: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(message: String, content: List[Map[String,String]]):play.twirl.api.HtmlFormat.Appendable = {
       _display_ {
 
-Seq[Any](format.raw/*1.19*/("""
+Seq[Any](format.raw/*1.54*/("""
 
 """),_display_(/*3.2*/main("Welcome to Play")/*3.25*/ {_display_(Seq[Any](format.raw/*3.27*/("""
 
-      """),format.raw/*5.7*/("""<h3>  """),_display_(/*5.14*/message),format.raw/*5.21*/(""" """),format.raw/*5.22*/("""</h3>
+    """),format.raw/*5.5*/("""<h2>"""),_display_(/*5.10*/message),format.raw/*5.17*/("""</h2>
 
-    <form action=""""),_display_(/*7.20*/routes/*7.26*/.Application.addPerson()),format.raw/*7.50*/("""" method="post">
-        Name: <input type="text" name="name" style="margin: 3px;"/> <br/>
-        Age: <input type="number" name="age" style="width: 40px;margin: 3px;"/> <br/>
-        <button style="margin: 3px;">Add</button>
-    </form>
+    """),_display_(/*7.6*/for(item <- content) yield /*7.26*/{_display_(Seq[Any](format.raw/*7.27*/("""
+        """),format.raw/*8.9*/("""<div>
+            <section>
+                <figure>
+                    <img src="img/u42.png" alt="">
+                    <figcaption>
+                        <h3>"""),_display_(/*13.30*/item/*13.34*/.get("name")),format.raw/*13.46*/("""</h3>
+                        <p>"""),_display_(/*14.29*/item/*14.33*/.get("description")),format.raw/*14.52*/("""</p>
+                        <button>
+                            <h5>
+                                Купить
+                                <span class="price">
+                                    200rub
+                                </span>
+                            </h5>
+                        </button>
+                    </figcaption>
+                </figure>
+            </section>
+        </div>
+    """)))}),format.raw/*27.6*/("""
 
-
-""")))}),format.raw/*14.2*/("""
-"""))}
+""")))}))}
   }
 
-  def render(message:String): play.twirl.api.HtmlFormat.Appendable = apply(message)
+  def render(message:String,content:List[Map[String, String]]): play.twirl.api.HtmlFormat.Appendable = apply(message,content)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (message) => apply(message)
+  def f:((String,List[Map[String, String]]) => play.twirl.api.HtmlFormat.Appendable) = (message,content) => apply(message,content)
 
   def ref: this.type = this
 
 }
               /*
                   -- GENERATED --
-                  DATE: Sun Feb 15 23:36:21 MSK 2015
+                  DATE: Thu Feb 19 01:53:56 MSK 2015
                   SOURCE: /Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/app/views/index.scala.html
-                  HASH: bdb4e27f1570aa8283ad36273e3c3f99b58eeb5d
-                  MATRIX: 723->1|828->18|856->21|887->44|926->46|960->54|993->61|1020->68|1048->69|1100->95|1114->101|1158->125|1430->367
-                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|33->5|33->5|33->5|35->7|35->7|35->7|42->14
+                  HASH: 775af438d607ee65a407fdc138b5820c048f042d
+                  MATRIX: 749->1|889->53|917->56|948->79|987->81|1019->87|1050->92|1077->99|1114->111|1149->131|1187->132|1222->141|1415->307|1428->311|1461->323|1522->357|1535->361|1575->380|2022->797
+                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|33->5|33->5|35->7|35->7|35->7|36->8|41->13|41->13|41->13|42->14|42->14|42->14|55->27
                   -- GENERATED --
               */
           
