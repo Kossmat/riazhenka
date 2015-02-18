@@ -1,0 +1,9 @@
+2015-02-19 01:53:49,559 - [INFO] - from play in pool-5-thread-1 
+Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+
+2015-02-19 01:54:15,570 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:h2:/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/h2-1.4.185.jar
+
+2015-02-19 01:54:16,456 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+

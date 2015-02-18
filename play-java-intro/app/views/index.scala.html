@@ -1,7 +1,29 @@
-@(message: String)
+@(message: String, content: List[Map[String,String]])
 
 @main("Welcome to Play") {
 
-    @message
+    <h2>@message</h2>
+
+    @for(item <- content){
+        <div>
+            <section>
+                <figure>
+                    <img src="img/u42.png" alt="">
+                    <figcaption>
+                        <h3>@item.get("name")</h3>
+                        <p>@item.get("description")</p>
+                        <button>
+                            <h5>
+                                Купить
+                                <span class="price">
+                                    200rub
+                                </span>
+                            </h5>
+                        </button>
+                    </figcaption>
+                </figure>
+            </section>
+        </div>
+    }
 
 }
