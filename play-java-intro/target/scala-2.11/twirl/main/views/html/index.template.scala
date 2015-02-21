@@ -66,7 +66,7 @@ Seq[Any](format.raw/*1.54*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Sat Feb 21 19:47:08 MSK 2015
+                  DATE: Sat Feb 21 23:09:49 MSK 2015
                   SOURCE: /Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/app/views/index.scala.html
                   HASH: 20c3459c890365192e7ad48f98e2da582e6e3eb3
                   MATRIX: 749->1|889->53|917->56|948->79|987->81|1019->87|1050->92|1077->99|1114->111|1149->131|1187->132|1222->141|1332->224|1415->286|1444->287|1542->358|1555->362|1588->374|1649->408|1662->412|1702->431|2149->848

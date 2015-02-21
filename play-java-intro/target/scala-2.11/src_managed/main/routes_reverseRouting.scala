@@ -1,6 +1,6 @@
 // @SOURCE:/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/routes
 // @HASH:73fde72cef1c4869703284b8f216a4ff6ed04b04
-// @DATE:Sat Feb 21 18:59:44 MSK 2015
+// @DATE:Sat Feb 21 23:09:49 MSK 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._

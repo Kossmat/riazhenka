@@ -55,10 +55,9 @@ public class Application extends Controller {
     }
 
     public static Result addRoll() throws SQLException {
-        Roll roll = Form.form(Roll.class).bindFromRequest().get();
-
 
         Http.MultipartFormData body = request().body().asMultipartFormData();
+
         Http.MultipartFormData.FilePart picture = body.getFile("photo");
 
         File photo = picture.getFile();
@@ -77,16 +76,29 @@ public class Application extends Controller {
             e.printStackTrace();
         }
 
+        Roll roll = new Roll();
+
         roll.image = bFile;
 
-        roll.save();
+        String name = Form.form(String.class).bindFromRequest().apply("name").value();
 
+        roll.name = name;
+
+        Integer weight = Integer.valueOf(Form.form(String.class).bindFromRequest().apply("weight").value());
+
+        roll.weight = weight;
+
+        String description = Form.form(String.class).bindFromRequest().apply("description").value();
+
+        roll.description = description;
+
+        roll.save();
 
         return redirect(routes.Application.indexRoll());
     }
 
     public static Result renderImage(String rollId){
-        System.out.println(rollId.toString());
+        //System.out.println("rollId = "+rollId.toString());
         Roll r = (Roll) new Model.Finder(String.class, Roll.class).byId(rollId);
 
         //return ok(r.image).as("image/jpeg");

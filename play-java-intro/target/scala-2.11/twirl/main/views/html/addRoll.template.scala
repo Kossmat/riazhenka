@@ -35,9 +35,9 @@ Seq[Any](format.raw/*1.19*/("""
 
 <form action=""""),_display_(/*8.16*/routes/*8.22*/.Application.addRoll()),format.raw/*8.44*/("""" method="post" enctype="multipart/form-data">
 
-    Name: <input type="text" name="name" style="margin: 3px;"/> <br/>
-    Weight: <input type="number" name="weight" style="width: 40px;margin: 3px;"/> <br/>
-    Description: <input type="text" name="description"/><br/>
+    Name: <input type="text" name="name" id="name" style="margin: 3px;"/> <br/>
+    Weight: <input type="number" name="weight" id="weight" style="width: 40px;margin: 3px;"/> <br/>
+    Description: <input type="text" name="description" id="description"/><br/>
     Image: <input type="file" name="photo" id="photo"/><br/>
     <button style="margin: 3px;">Add</button>
 
@@ -85,10 +85,10 @@ Seq[Any](format.raw/*1.19*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Sat Feb 21 18:59:44 MSK 2015
+                  DATE: Sat Feb 21 23:09:49 MSK 2015
                   SOURCE: /Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/app/views/addRoll.scala.html
-                  HASH: 8c5670e977140778cda25c482e3eea730f1d1630
-                  MATRIX: 725->1|830->18|858->21|889->44|928->46|957->49|989->56|1016->63|1044->64|1092->86|1106->92|1148->114|1740->678|1769->679|1805->688|1841->697|1856->703|1900->726|1948->746|1977->747|2017->759|2155->869|2184->870|2225->883|2307->937|2336->938|2375->949|2435->982|2464->983|2498->990|2526->991|2555->993
+                  HASH: 6b88d942cd6a42b19bf352d305d08e4c0b10a4bc
+                  MATRIX: 725->1|830->18|858->21|889->44|928->46|957->49|989->56|1016->63|1044->64|1092->86|1106->92|1148->114|1779->717|1808->718|1844->727|1880->736|1895->742|1939->765|1987->785|2016->786|2056->798|2194->908|2223->909|2264->922|2346->976|2375->977|2414->988|2474->1021|2503->1022|2537->1029|2565->1030|2594->1032
                   LINES: 26->1|29->1|31->3|31->3|31->3|34->6|34->6|34->6|34->6|36->8|36->8|36->8|61->33|61->33|62->34|62->34|62->34|62->34|62->34|62->34|64->36|66->38|66->38|67->39|68->40|68->40|69->41|71->43|71->43|72->44|72->44|74->46
                   -- GENERATED --
               */

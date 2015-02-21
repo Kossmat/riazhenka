@@ -23,3 +23,16 @@ run
 clean
 compile
 run
+clear
+clean
+run
+clean
+compile
+exit
+run
+clean
+compile
+run
+clean
+compile
+run
