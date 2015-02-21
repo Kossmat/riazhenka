@@ -36,18 +36,24 @@
         }
     </table>
 
+    <input types="text" id="number"/>
+    <button id="qwerty"></button>
 
     <script>
+        function foo(){
+             $('#qwerty').on('click',function() {
+                var id = $('#number').val();
+                myJsRoutes.controllers.JsAjax.getItem(id).ajax({
+                    success : function(data) {
+                        console.log(data)
+                    }
+                });
+            });
+
+        }
 
         function getRolls(){
             var a = '@controllers.Admin.getRolls()';
-            a = a.replace(/&quot;/g,'"');
-            var objs = $.parseJSON(a);
-            return objs;
-        }
-
-        function getPersons(){
-            var a = '@controllers.Admin.getPersons()';
             a = a.replace(/&quot;/g,'"');
             var objs = $.parseJSON(a);
             return objs;
@@ -84,45 +90,6 @@
             }
         }
 
-        function loadGridPersons(Id, data){
-            var lastsel;
-            jQuery("#"+Id+"").jqGrid({
-                datatype: "local",
-                //height: 250,
-                colNames:['Actions','Id','name', 'age'],
-                colModel:[
-                    {name: 'act', index: 'act', width: 75},
-                    {name:'Id',index:'id', width:60},
-                    {name:'name',index:'name', width:100, editable:true},
-                    {name:'age',index:'age', editable:true},
-                ],
-                gridComplete: function(){
-                    var ids = $("#"+Id+"").jqGrid('getDataIDs');
-                    for(var i=0;i < ids.length;i++){
-                        var cl = ids[i];
-                        be = "<input style='height:22px;width:20px;' type='button' value='E' onclick=\"$('#list').editRow('"+cl+"');\"  />";
-                        se = "<input style='height:22px;width:20px;' type='button' value='C' onclick=\"$('#list').restoreRow('"+cl+"');\"  />";
-                        $("#"+Id+"").jqGrid('setRowData',ids[i],{act:be+se});
-                    }
-                },
-  //TODO    //    onSelectRow: function(id){
-            //        if(id && id!==lastsel){
-            //            jQuery("#"+Id+"").jqGrid('restoreRow',lastsel);
-            //            jQuery("#"+Id+"").jqGrid('editRow',id,true);
-            //            lastsel=id;
-            //        }
-            //    },
-                viewrecords: true,
-                multiselect: false,
-            });
-
-            for(var i=0;i<=data.length;i++){
-                jQuery("#"+Id+"").jqGrid('addRowData', i, data[i]);
-            }
-
-            //jQuery("#"+Id+"").jqGrid('navGrid',"#pager",{edit:false,add:false,del:false});
-        }
-
         jQuery().ready(function (){
 
             $('#selectTable').on('change', function(what){
@@ -138,10 +105,7 @@
                     loadGridRolls('list', rollsFromController);
 
                 }else if(select == 'class models.Person'){
-
-                    var personsFromController = getPersons();
-
-                    loadGridPersons('list', personsFromController);
+s
 
                 }
 

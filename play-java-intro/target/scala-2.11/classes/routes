@@ -14,26 +14,22 @@ POST    /adminSQL                       controllers.Admin.adminSQL()
 #~~~~~~~~~~~~~~~~admin page~~~~~~~~~~~~~~~~
 
 
-#~~~~~~~~~~~~~~~~person page~~~~~~~~~~~~~~~~?
-
-GET     /person                         controllers.Application.indexPerson()
-
-POST    /addPerson                      controllers.Application.addPerson()
-
-GET     /persons                        controllers.Application.getPersons()
-
-#~~~~~~~~~~~~~~~~person page~~~~~~~~~~~~~~~~?
-
-
 #~~~~~~~~~~~~~~~~roll page~~~~~~~~~~~~~~~~
 
 GET     /roll                           controllers.Application.indexRoll()
 
 POST    /addRoll                        controllers.Application.addRoll()
 
+GET     /getImage/:rollId               controllers.Application.renderImage(rollId: String)
+
 GET     /rolls                          controllers.Application.getRolls()
 
 #~~~~~~~~~~~~~~~~roll page~~~~~~~~~~~~~~~~
+
+GET     /javascriptRoutes               controllers.JsAjax.javascriptRoutes()
+
+GET     /testGET/:id                    controllers.JsAjax.getItem(id: Integer)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)

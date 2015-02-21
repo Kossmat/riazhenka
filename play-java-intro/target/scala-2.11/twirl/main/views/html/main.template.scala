@@ -29,18 +29,21 @@ object main extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Forma
 Seq[Any](format.raw/*1.32*/("""
 
 """),format.raw/*3.1*/("""<!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+<script src='"""),_display_(/*4.15*/routes/*4.21*/.Assets.at("javascripts/Guriddo_jqGrid_JS_4.7.1/js/jquery-1.11.0.min.js")),format.raw/*4.94*/("""' type="text/javascript"></script>
 
+<!--for work with ajax-->
+<script type="text/javascript" src='"""),_display_(/*7.38*/routes/*7.44*/.JsAjax.javascriptRoutes()),format.raw/*7.70*/("""'></script>
 
-"""),_display_(/*6.2*/content),format.raw/*6.9*/("""
+"""),_display_(/*9.2*/content),format.raw/*9.9*/("""
 
-"""),format.raw/*8.1*/("""<!--<!DOCTYPE html>-->
+"""),format.raw/*11.1*/("""<!--<!DOCTYPE html>-->
 <!--<html lang="en">-->
 <!--<head>-->
 	<!--<meta charset="UTF-8">-->
-	<!--<title>"""),_display_(/*12.14*/title),format.raw/*12.19*/("""</title>-->
-	<!--<link rel="stylesheet" media="screen" href=""""),_display_(/*13.51*/routes/*13.57*/.Assets.at("stylesheets/main.css")),format.raw/*13.91*/("""">-->
-    <!--<link rel="shortcut icon" type="image/png" href=""""),_display_(/*14.59*/routes/*14.65*/.Assets.at("images/favicon.png")),format.raw/*14.97*/("""">-->
-    <!--<script src=""""),_display_(/*15.23*/routes/*15.29*/.Assets.at("javascripts/hello.js")),format.raw/*15.63*/("""" type="text/javascript"></script>-->
+	<!--<title>"""),_display_(/*15.14*/title),format.raw/*15.19*/("""</title>-->
+	<!--<link rel="stylesheet" media="screen" href=""""),_display_(/*16.51*/routes/*16.57*/.Assets.at("stylesheets/main.css")),format.raw/*16.91*/("""">-->
+    <!--<link rel="shortcut icon" type="image/png" href=""""),_display_(/*17.59*/routes/*17.65*/.Assets.at("images/favicon.png")),format.raw/*17.97*/("""">-->
+    <!--<script src=""""),_display_(/*18.23*/routes/*18.29*/.Assets.at("javascripts/hello.js")),format.raw/*18.63*/("""" type="text/javascript"></script>-->
 <!--</head>-->
 <!--<body>-->
 
@@ -58,11 +61,11 @@ Seq[Any](format.raw/*1.32*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Thu Feb 19 01:53:56 MSK 2015
+                  DATE: Sat Feb 21 19:00:19 MSK 2015
                   SOURCE: /Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/app/views/main.scala.html
-                  HASH: b1e1f9badb52b404dbce0940d06c9b9149d7ad8d
-                  MATRIX: 727->1|845->31|873->33|999->134|1025->141|1053->143|1185->248|1211->253|1300->315|1315->321|1370->355|1461->419|1476->425|1529->457|1584->485|1599->491|1654->525
-                  LINES: 26->1|29->1|31->3|34->6|34->6|36->8|40->12|40->12|41->13|41->13|41->13|42->14|42->14|42->14|43->15|43->15|43->15
+                  HASH: e2a368d696b5c8e65d1655dd72c796f22c7d82e8
+                  MATRIX: 727->1|845->31|873->33|1011->145|1025->151|1118->224|1243->323|1257->329|1303->355|1342->369|1368->376|1397->378|1529->483|1555->488|1644->550|1659->556|1714->590|1805->654|1820->660|1873->692|1928->720|1943->726|1998->760
+                  LINES: 26->1|29->1|31->3|32->4|32->4|32->4|35->7|35->7|35->7|37->9|37->9|39->11|43->15|43->15|44->16|44->16|44->16|45->17|45->17|45->17|46->18|46->18|46->18
                   -- GENERATED --
               */
           

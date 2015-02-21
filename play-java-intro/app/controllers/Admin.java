@@ -1,6 +1,5 @@
 package controllers;
 
-import models.Person;
 import models.Roll;
 import play.data.Form;
 import play.db.DB;
@@ -57,22 +56,26 @@ public class Admin extends Controller {
         return String.valueOf(toJson(rolls));
     }
 
-    public static String getPersons(){
-        List<Person> persons = new Model.Finder(String.class, Person.class).all();
-        return String.valueOf(toJson(persons));
-    }
-
     public static List<String> getModel() throws ClassNotFoundException {
 
         List<String> model = new ArrayList<>();
-
-        model.add(String.valueOf(Person.class));
 
         model.add(String.valueOf(Roll.class));
 
         return model;
 
     }
+
+
+    public static Result testGET(){
+        String e = "";
+        System.out.println("e = "+e);
+
+        return (Result) toJson("test");
+
+    }
+
+
 
     public static Result adminSQL() throws SQLException {
 

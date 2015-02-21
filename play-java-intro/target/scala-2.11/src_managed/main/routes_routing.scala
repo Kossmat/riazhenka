@@ -1,6 +1,6 @@
 // @SOURCE:/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/routes
-// @HASH:a99b6d69ed5223c51f85321c846d36b29c812ffa
-// @DATE:Thu Feb 19 01:53:55 MSK 2015
+// @HASH:73fde72cef1c4869703284b8f216a4ff6ed04b04
+// @DATE:Sat Feb 21 18:59:44 MSK 2015
 
 
 import play.core._
@@ -54,54 +54,54 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.Admin", "adminSQL", Ni
         
 
 // @LINE:19
-private[this] lazy val controllers_Application_indexPerson3_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("person"))))
-private[this] lazy val controllers_Application_indexPerson3_invoker = createInvoker(
-controllers.Application.indexPerson(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "indexPerson", Nil,"GET", """""", Routes.prefix + """person"""))
-        
-
-// @LINE:21
-private[this] lazy val controllers_Application_addPerson4_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("addPerson"))))
-private[this] lazy val controllers_Application_addPerson4_invoker = createInvoker(
-controllers.Application.addPerson(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "addPerson", Nil,"POST", """""", Routes.prefix + """addPerson"""))
-        
-
-// @LINE:23
-private[this] lazy val controllers_Application_getPersons5_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("persons"))))
-private[this] lazy val controllers_Application_getPersons5_invoker = createInvoker(
-controllers.Application.getPersons(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getPersons", Nil,"GET", """""", Routes.prefix + """persons"""))
-        
-
-// @LINE:30
-private[this] lazy val controllers_Application_indexRoll6_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("roll"))))
-private[this] lazy val controllers_Application_indexRoll6_invoker = createInvoker(
+private[this] lazy val controllers_Application_indexRoll3_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("roll"))))
+private[this] lazy val controllers_Application_indexRoll3_invoker = createInvoker(
 controllers.Application.indexRoll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "indexRoll", Nil,"GET", """""", Routes.prefix + """roll"""))
         
 
-// @LINE:32
-private[this] lazy val controllers_Application_addRoll7_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("addRoll"))))
-private[this] lazy val controllers_Application_addRoll7_invoker = createInvoker(
+// @LINE:21
+private[this] lazy val controllers_Application_addRoll4_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("addRoll"))))
+private[this] lazy val controllers_Application_addRoll4_invoker = createInvoker(
 controllers.Application.addRoll(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "addRoll", Nil,"POST", """""", Routes.prefix + """addRoll"""))
         
 
-// @LINE:34
-private[this] lazy val controllers_Application_getRolls8_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("rolls"))))
-private[this] lazy val controllers_Application_getRolls8_invoker = createInvoker(
+// @LINE:23
+private[this] lazy val controllers_Application_renderImage5_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("getImage/"),DynamicPart("rollId", """[^/]+""",true))))
+private[this] lazy val controllers_Application_renderImage5_invoker = createInvoker(
+controllers.Application.renderImage(fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "renderImage", Seq(classOf[String]),"GET", """""", Routes.prefix + """getImage/$rollId<[^/]+>"""))
+        
+
+// @LINE:25
+private[this] lazy val controllers_Application_getRolls6_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("rolls"))))
+private[this] lazy val controllers_Application_getRolls6_invoker = createInvoker(
 controllers.Application.getRolls(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getRolls", Nil,"GET", """""", Routes.prefix + """rolls"""))
         
 
-// @LINE:39
+// @LINE:29
+private[this] lazy val controllers_JsAjax_javascriptRoutes7_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("javascriptRoutes"))))
+private[this] lazy val controllers_JsAjax_javascriptRoutes7_invoker = createInvoker(
+controllers.JsAjax.javascriptRoutes(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.JsAjax", "javascriptRoutes", Nil,"GET", """""", Routes.prefix + """javascriptRoutes"""))
+        
+
+// @LINE:31
+private[this] lazy val controllers_JsAjax_getItem8_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("testGET/"),DynamicPart("id", """[^/]+""",true))))
+private[this] lazy val controllers_JsAjax_getItem8_invoker = createInvoker(
+controllers.JsAjax.getItem(fakeValue[Integer]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.JsAjax", "getItem", Seq(classOf[Integer]),"GET", """""", Routes.prefix + """testGET/$id<[^/]+>"""))
+        
+
+// @LINE:35
 private[this] lazy val controllers_Assets_at9_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
 private[this] lazy val controllers_Assets_at9_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """admin""","""controllers.Admin.myRender()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """adminSQL""","""controllers.Admin.adminSQL()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """person""","""controllers.Application.indexPerson()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addPerson""","""controllers.Application.addPerson()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """persons""","""controllers.Application.getPersons()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """roll""","""controllers.Application.indexRoll()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addRoll""","""controllers.Application.addRoll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """rolls""","""controllers.Application.getRolls()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """admin""","""controllers.Admin.myRender()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """adminSQL""","""controllers.Admin.adminSQL()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """roll""","""controllers.Application.indexRoll()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """addRoll""","""controllers.Application.addRoll()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """getImage/$rollId<[^/]+>""","""controllers.Application.renderImage(rollId:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """rolls""","""controllers.Application.getRolls()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """javascriptRoutes""","""controllers.JsAjax.javascriptRoutes()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """testGET/$id<[^/]+>""","""controllers.JsAjax.getItem(id:Integer)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -134,54 +134,54 @@ case controllers_Admin_adminSQL2_route(params) => {
         
 
 // @LINE:19
-case controllers_Application_indexPerson3_route(params) => {
+case controllers_Application_indexRoll3_route(params) => {
    call { 
-        controllers_Application_indexPerson3_invoker.call(controllers.Application.indexPerson())
+        controllers_Application_indexRoll3_invoker.call(controllers.Application.indexRoll())
    }
 }
         
 
 // @LINE:21
-case controllers_Application_addPerson4_route(params) => {
+case controllers_Application_addRoll4_route(params) => {
    call { 
-        controllers_Application_addPerson4_invoker.call(controllers.Application.addPerson())
+        controllers_Application_addRoll4_invoker.call(controllers.Application.addRoll())
    }
 }
         
 
 // @LINE:23
-case controllers_Application_getPersons5_route(params) => {
-   call { 
-        controllers_Application_getPersons5_invoker.call(controllers.Application.getPersons())
+case controllers_Application_renderImage5_route(params) => {
+   call(params.fromPath[String]("rollId", None)) { (rollId) =>
+        controllers_Application_renderImage5_invoker.call(controllers.Application.renderImage(rollId))
    }
 }
         
 
-// @LINE:30
-case controllers_Application_indexRoll6_route(params) => {
+// @LINE:25
+case controllers_Application_getRolls6_route(params) => {
    call { 
-        controllers_Application_indexRoll6_invoker.call(controllers.Application.indexRoll())
+        controllers_Application_getRolls6_invoker.call(controllers.Application.getRolls())
    }
 }
         
 
-// @LINE:32
-case controllers_Application_addRoll7_route(params) => {
+// @LINE:29
+case controllers_JsAjax_javascriptRoutes7_route(params) => {
    call { 
-        controllers_Application_addRoll7_invoker.call(controllers.Application.addRoll())
+        controllers_JsAjax_javascriptRoutes7_invoker.call(controllers.JsAjax.javascriptRoutes())
    }
 }
         
 
-// @LINE:34
-case controllers_Application_getRolls8_route(params) => {
-   call { 
-        controllers_Application_getRolls8_invoker.call(controllers.Application.getRolls())
+// @LINE:31
+case controllers_JsAjax_getItem8_route(params) => {
+   call(params.fromPath[Integer]("id", None)) { (id) =>
+        controllers_JsAjax_getItem8_invoker.call(controllers.JsAjax.getItem(id))
    }
 }
         
 
-// @LINE:39
+// @LINE:35
 case controllers_Assets_at9_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         controllers_Assets_at9_invoker.call(controllers.Assets.at(path, file))

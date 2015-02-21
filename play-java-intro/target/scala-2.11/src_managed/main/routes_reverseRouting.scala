@@ -1,6 +1,6 @@
 // @SOURCE:/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/routes
-// @HASH:a99b6d69ed5223c51f85321c846d36b29c812ffa
-// @DATE:Thu Feb 19 01:53:55 MSK 2015
+// @HASH:73fde72cef1c4869703284b8f216a4ff6ed04b04
+// @DATE:Sat Feb 21 18:59:44 MSK 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,10 +15,10 @@ import _root_.play.libs.F
 import Router.queryString
 
 
-// @LINE:39
-// @LINE:34
-// @LINE:32
-// @LINE:30
+// @LINE:35
+// @LINE:31
+// @LINE:29
+// @LINE:25
 // @LINE:23
 // @LINE:21
 // @LINE:19
@@ -49,11 +49,33 @@ def adminSQL(): Call = {
 }
                           
 
-// @LINE:39
+// @LINE:31
+// @LINE:29
+class ReverseJsAjax {
+
+
+// @LINE:31
+def getItem(id:Integer): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "testGET/" + implicitly[PathBindable[Integer]].unbind("id", id))
+}
+                        
+
+// @LINE:29
+def javascriptRoutes(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "javascriptRoutes")
+}
+                        
+
+}
+                          
+
+// @LINE:35
 class ReverseAssets {
 
 
-// @LINE:39
+// @LINE:35
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -63,9 +85,7 @@ def at(file:String): Call = {
 }
                           
 
-// @LINE:34
-// @LINE:32
-// @LINE:30
+// @LINE:25
 // @LINE:23
 // @LINE:21
 // @LINE:19
@@ -73,14 +93,14 @@ def at(file:String): Call = {
 class ReverseApplication {
 
 
-// @LINE:34
+// @LINE:25
 def getRolls(): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "rolls")
 }
                         
 
-// @LINE:30
+// @LINE:19
 def indexRoll(): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "roll")
@@ -88,30 +108,16 @@ def indexRoll(): Call = {
                         
 
 // @LINE:21
-def addPerson(): Call = {
+def addRoll(): Call = {
    import ReverseRouteContext.empty
-   Call("POST", _prefix + { _defaultPrefix } + "addPerson")
+   Call("POST", _prefix + { _defaultPrefix } + "addRoll")
 }
                         
 
 // @LINE:23
-def getPersons(): Call = {
+def renderImage(rollId:String): Call = {
    import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "persons")
-}
-                        
-
-// @LINE:19
-def indexPerson(): Call = {
-   import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "person")
-}
-                        
-
-// @LINE:32
-def addRoll(): Call = {
-   import ReverseRouteContext.empty
-   Call("POST", _prefix + { _defaultPrefix } + "addRoll")
+   Call("GET", _prefix + { _defaultPrefix } + "getImage/" + implicitly[PathBindable[String]].unbind("rollId", dynamicString(rollId)))
 }
                         
 
@@ -128,10 +134,10 @@ def index(): Call = {
                   
 
 
-// @LINE:39
-// @LINE:34
-// @LINE:32
-// @LINE:30
+// @LINE:35
+// @LINE:31
+// @LINE:29
+// @LINE:25
 // @LINE:23
 // @LINE:21
 // @LINE:19
@@ -171,11 +177,41 @@ def adminSQL : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:39
+// @LINE:31
+// @LINE:29
+class ReverseJsAjax {
+
+
+// @LINE:31
+def getItem : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.JsAjax.getItem",
+   """
+      function(id) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "testGET/" + (""" + implicitly[PathBindable[Integer]].javascriptUnbind + """)("id", id)})
+      }
+   """
+)
+                        
+
+// @LINE:29
+def javascriptRoutes : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.JsAjax.javascriptRoutes",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "javascriptRoutes"})
+      }
+   """
+)
+                        
+
+}
+              
+
+// @LINE:35
 class ReverseAssets {
 
 
-// @LINE:39
+// @LINE:35
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -189,9 +225,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:34
-// @LINE:32
-// @LINE:30
+// @LINE:25
 // @LINE:23
 // @LINE:21
 // @LINE:19
@@ -199,7 +233,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseApplication {
 
 
-// @LINE:34
+// @LINE:25
 def getRolls : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.getRolls",
    """
@@ -210,7 +244,7 @@ def getRolls : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:30
+// @LINE:19
 def indexRoll : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.indexRoll",
    """
@@ -222,44 +256,22 @@ def indexRoll : JavascriptReverseRoute = JavascriptReverseRoute(
                         
 
 // @LINE:21
-def addPerson : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.addPerson",
+def addRoll : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.addRoll",
    """
       function() {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addPerson"})
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addRoll"})
       }
    """
 )
                         
 
 // @LINE:23
-def getPersons : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.getPersons",
+def renderImage : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.renderImage",
    """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "persons"})
-      }
-   """
-)
-                        
-
-// @LINE:19
-def indexPerson : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.indexPerson",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "person"})
-      }
-   """
-)
-                        
-
-// @LINE:32
-def addRoll : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.addRoll",
-   """
-      function() {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addRoll"})
+      function(rollId) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getImage/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("rollId", encodeURIComponent(rollId))})
       }
    """
 )
@@ -282,10 +294,10 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:39
-// @LINE:34
-// @LINE:32
-// @LINE:30
+// @LINE:35
+// @LINE:31
+// @LINE:29
+// @LINE:25
 // @LINE:23
 // @LINE:21
 // @LINE:19
@@ -315,11 +327,31 @@ def adminSQL(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:39
+// @LINE:31
+// @LINE:29
+class ReverseJsAjax {
+
+
+// @LINE:31
+def getItem(id:Integer): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.JsAjax.getItem(id), HandlerDef(this.getClass.getClassLoader, "", "controllers.JsAjax", "getItem", Seq(classOf[Integer]), "GET", """""", _prefix + """testGET/$id<[^/]+>""")
+)
+                      
+
+// @LINE:29
+def javascriptRoutes(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.JsAjax.javascriptRoutes(), HandlerDef(this.getClass.getClassLoader, "", "controllers.JsAjax", "javascriptRoutes", Seq(), "GET", """""", _prefix + """javascriptRoutes""")
+)
+                      
+
+}
+                          
+
+// @LINE:35
 class ReverseAssets {
 
 
-// @LINE:39
+// @LINE:35
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -328,9 +360,7 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
-// @LINE:34
-// @LINE:32
-// @LINE:30
+// @LINE:25
 // @LINE:23
 // @LINE:21
 // @LINE:19
@@ -338,39 +368,27 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 class ReverseApplication {
 
 
-// @LINE:34
+// @LINE:25
 def getRolls(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.getRolls(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getRolls", Seq(), "GET", """""", _prefix + """rolls""")
 )
                       
 
-// @LINE:30
+// @LINE:19
 def indexRoll(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.indexRoll(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "indexRoll", Seq(), "GET", """""", _prefix + """roll""")
 )
                       
 
 // @LINE:21
-def addPerson(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.addPerson(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "addPerson", Seq(), "POST", """""", _prefix + """addPerson""")
+def addRoll(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.addRoll(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "addRoll", Seq(), "POST", """""", _prefix + """addRoll""")
 )
                       
 
 // @LINE:23
-def getPersons(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.getPersons(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getPersons", Seq(), "GET", """""", _prefix + """persons""")
-)
-                      
-
-// @LINE:19
-def indexPerson(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.indexPerson(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "indexPerson", Seq(), "GET", """""", _prefix + """person""")
-)
-                      
-
-// @LINE:32
-def addRoll(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.addRoll(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "addRoll", Seq(), "POST", """""", _prefix + """addRoll""")
+def renderImage(rollId:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.renderImage(rollId), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "renderImage", Seq(classOf[String]), "GET", """""", _prefix + """getImage/$rollId<[^/]+>""")
 )
                       
 

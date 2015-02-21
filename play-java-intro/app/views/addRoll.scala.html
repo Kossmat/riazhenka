@@ -2,21 +2,25 @@
 
 @main("Welcome to Play") {
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <h3>  @message </h3>
 
-<form action="@routes.Application.addRoll()" method="post">
+<form action="@routes.Application.addRoll()" method="post" enctype="multipart/form-data">
+
     Name: <input type="text" name="name" style="margin: 3px;"/> <br/>
     Weight: <input type="number" name="weight" style="width: 40px;margin: 3px;"/> <br/>
     Description: <input type="text" name="description"/><br/>
+    Image: <input type="file" name="photo" id="photo"/><br/>
     <button style="margin: 3px;">Add</button>
 
 </form>
 
 
+<br/>
 
-<button onclick="foo()">getFromDB</button>
+
+
+<button onclick="getRollsFromDB()">getFromDB</button>
 
 
         <div id="contentFromDB">
@@ -26,9 +30,7 @@
 
 
 <script type="text/javascript">
-    function foo(){
-
-
+    function getRollsFromDB(){
         $.get( "@routes.Application.getRolls()", function( data ) {
 
           var out = $('#contentFromDB');
@@ -40,6 +42,7 @@
 
         });
     }
+
 </script>
 
 }
