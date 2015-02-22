@@ -97,12 +97,20 @@ public class Application extends Controller {
         return redirect(routes.Application.indexRoll());
     }
 
-    public static Result renderImage(String rollId){
-        //System.out.println("rollId = "+rollId.toString());
-        Roll r = (Roll) new Model.Finder(String.class, Roll.class).byId(rollId);
+    public static Result renderImage(String rollId) throws SQLException {
+//        System.out.println("rollId = "+rollId.toString());
+//        Roll r = (Roll) new Model.Finder(String.class, Roll.class).byId(rollId);
+//        System.out.println(r.image);
+//        return ok(r.image).as("image/jpg");
 
-        //return ok(r.image).as("image/jpeg");
-        return ok(r.image).as("image/jpg");
+        Model.Finder f = new Model.Finder(String.class, Roll.class);
+        Roll roll = (Roll) f.ref(rollId);
+        System.out.println(roll);
+        return ok(roll.image).as("image/jpg");
+
+//        Result image = Admin.getImage(Long.parseLong(rollId));
+//        response().setContentType("image/jpg");
+//        return ok(String.valueOf(image.toScala()));//.as("image/jpeg");
 
     }
 
@@ -110,8 +118,6 @@ public class Application extends Controller {
         List<Roll> rolls = new Model.Finder(String.class, Roll.class).all();
         return ok(toJson(rolls));
     }
-
-
 
 
 }

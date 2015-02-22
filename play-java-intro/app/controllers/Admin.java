@@ -92,6 +92,19 @@ public class Admin extends Controller {
         return redirect(routes.Admin.myRender());
     }
 
+    public static Result getImage(long id) throws SQLException {
+
+        String query = "select image from Roll where id="+id+"";
+
+        List<String> result = doSQL(query);
+
+        System.out.println(result.size());
+
+        String r = result.get(0).substring(7, result.get(0).length()-1);
+
+        return ok(r);
+    }
+
 
     public static List<String> doSQL(String query) throws SQLException {
 
