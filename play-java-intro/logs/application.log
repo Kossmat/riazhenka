@@ -500,3 +500,9 @@ database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
 2015-02-22 15:23:38,100 - [INFO] - from play in play-internal-execution-context-2 
 Application started (Dev)
 
+2015-02-22 15:33:49,895 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
+
+2015-02-22 15:33:49,961 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+

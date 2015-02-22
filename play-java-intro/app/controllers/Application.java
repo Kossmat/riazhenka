@@ -105,7 +105,7 @@ public class Application extends Controller {
 
         Model.Finder f = new Model.Finder(String.class, Roll.class);
         Roll roll = (Roll) f.ref(rollId);
-        System.out.println(roll);
+        System.out.println(roll.image);
         return ok(roll.image).as("image/jpg");
 
 //        Result image = Admin.getImage(Long.parseLong(rollId));

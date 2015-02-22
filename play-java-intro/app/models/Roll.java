@@ -3,9 +3,7 @@ package models;
 
 import play.db.ebean.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 @Entity
 public class Roll extends Model{
@@ -19,7 +17,8 @@ public class Roll extends Model{
 
     public int weight;
 
-    @Lob
+    @Lob @Basic(fetch= FetchType.LAZY)
+    @Column(name="image")
     public byte[] image;
 
 }
