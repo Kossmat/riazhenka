@@ -2,16 +2,38 @@
 
 @main("Welcome to Play") {
 
+<style type="text/css">
+
+    form{
+        margin: 5px;
+    }
+
+    input{
+        margin: 3px;
+    }
+
+    input[type=number] {
+        width: 60px;
+        margin: 3px;
+    }
+
+    form > button{
+        width: 50px;
+        margin: 4px;
+    }
+
+</style>
 
 <h3>  @message </h3>
 
 <form action="@routes.Application.addRoll()" method="post" enctype="multipart/form-data">
 
-    Name: <input type="text" name="name" id="name" style="margin: 3px;"/> <br/>
-    Weight: <input type="number" name="weight" id="weight" style="width: 40px;margin: 3px;"/> <br/>
+    Name: <input type="text" name="name" id="name"/> <br/>
+    Price: <input type="number" name="price" id="price"><br/>
+    Weight: <input type="number" name="weight" id="weight"/> <br/>
     Description: <input type="text" name="description" id="description"/><br/>
     Image: <input type="file" name="photo" id="photo"/><br/>
-    <button style="margin: 3px;">Add</button>
+    <button>Add</button>
 
 </form>
 

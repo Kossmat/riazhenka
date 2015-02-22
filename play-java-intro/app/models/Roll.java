@@ -17,6 +17,8 @@ public class Roll extends Model{
 
     public int weight;
 
+    public Double price;
+
     @Lob @Basic(fetch= FetchType.LAZY)
     @Column(name="image")
     public byte[] image;

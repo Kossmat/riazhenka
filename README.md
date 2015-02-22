@@ -1,5 +1,5 @@
 # riazhenka
 
-don't change default DB URL
+First cd in "play-java-intro", then run activator. 
 
-For WinOs: First cd in "play-java-intro", then run activator. When "[play-java-intro] $" exec commands: clean, compile, run.
+When "[play-java-intro] $" exec commands: clean, compile, run.

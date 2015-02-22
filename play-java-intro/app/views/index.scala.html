@@ -2,28 +2,40 @@
 
 @main("Welcome to Play") {
 
-    <h2>@message</h2>
-
-    @for(item <- content){
-        <div>
-            <section>
-                <figure>
-                    <img src=@{val a = item.get("Id"); routes.Application.renderImage(""+a)} alt=""/>
-                    <figcaption>
-                        <h3>@item.get("name")</h3>
-                        <p>@item.get("description")</p>
-                        <button>
-                            <h5>
-                                Купить
-                                <span class="price">
-                                    200rub
-                                </span>
-                            </h5>
-                        </button>
-                    </figcaption>
-                </figure>
-            </section>
-        </div>
+<style type="text/css">
+    .product--image{
+        width: 200px;
+        heigh:200px;
     }
+</style>
 
+<h2>@message</h2>
+
+<div style="margin: 0 auto">
+
+    <ul>
+        @for(item <- content){
+
+            <li class="product" style="list-style: none; display: inline-block; padding-right:6px; max-width: 33.33333%">
+                <section>
+                    <figure>
+                        <img class="product--image" src=@{val a = item.get("Id"); routes.Application.renderImage(""+a)} alt=""/>
+                        <figcaption class="product--about">
+                            <h3 class="product--name">@item.get("name")</h3>
+                            <p class="product--description">@item.get("description")</p>
+                            <button class="btn" style="padding: 5px; text-transform: uppercase; font-weight: 600;">
+                                Купить
+                            </button>
+                                <span class="product--price">
+                                    @item.get("price") rub
+                                </span>
+                        </figcaption>
+                    </figure>
+                </section>
+            </li>
+
+        }
+    </ul>
+
+</div>
 }

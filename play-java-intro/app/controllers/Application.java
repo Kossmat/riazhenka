@@ -39,12 +39,12 @@ public class Application extends Controller {
 
             propToValMap.put("description", item.description);
 
-            //TODO add price property
+            propToValMap.put("price", item.price);
 
             strRolls.add(propToValMap);
         }
 
-        return ok(index.render("index page v 0.0002", strRolls));
+        return ok(index.render("index page v 0.00022", strRolls));
 
     }
 
@@ -88,6 +88,10 @@ public class Application extends Controller {
 
         roll.weight = weight;
 
+        Double price = Double.valueOf(Form.form(String.class).bindFromRequest().apply("price").value());
+
+        roll.price = price;
+
         String description = Form.form(String.class).bindFromRequest().apply("description").value();
 
         roll.description = description;
@@ -98,19 +102,11 @@ public class Application extends Controller {
     }
 
     public static Result renderImage(String rollId) throws SQLException {
-//        System.out.println("rollId = "+rollId.toString());
-//        Roll r = (Roll) new Model.Finder(String.class, Roll.class).byId(rollId);
-//        System.out.println(r.image);
-//        return ok(r.image).as("image/jpg");
 
         Model.Finder f = new Model.Finder(String.class, Roll.class);
         Roll roll = (Roll) f.ref(rollId);
-        System.out.println(roll.image);
+        //System.out.println(roll.image);
         return ok(roll.image).as("image/jpg");
-
-//        Result image = Admin.getImage(Long.parseLong(rollId));
-//        response().setContentType("image/jpg");
-//        return ok(String.valueOf(image.toScala()));//.as("image/jpeg");
 
     }
 

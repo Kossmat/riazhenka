@@ -8,6 +8,7 @@ create table roll (
   name                      varchar(255),
   description               varchar(255),
   weight                    integer,
+  price                     double,
   image                     blob,
   constraint pk_roll primary key (id))
 ;
