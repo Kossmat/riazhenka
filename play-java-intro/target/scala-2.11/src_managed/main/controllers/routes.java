@@ -1,6 +1,6 @@
 // @SOURCE:/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/routes
-// @HASH:73fde72cef1c4869703284b8f216a4ff6ed04b04
-// @DATE:Mon Feb 23 00:53:15 MSK 2015
+// @HASH:bffb21beecb51f4cb409f6d217295e67767a6e82
+// @DATE:Sat Mar 07 17:21:39 MSK 2015
 
 package controllers;
 

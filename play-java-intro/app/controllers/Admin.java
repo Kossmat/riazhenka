@@ -1,9 +1,8 @@
 package controllers;
 
-import models.Roll;
+import models.Product;
 import play.data.Form;
 import play.db.DB;
-import play.db.ebean.Model;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.test;
@@ -41,26 +40,11 @@ public class Admin extends Controller {
         return ok(test.render("admin page v0.002", getModel(), queryResult));
     }
 
-    public static String getRolls(){
-        //oql
-        //List<Roll> rolls = new Model.Finder(String.class, Roll.class).where().isNotNull("description").findList();
-        List<Roll> rolls = new Model.Finder(String.class, Roll.class).all();
-
-        return String.valueOf(toJson(rolls));
-    }
-
-    public static String rollsSearch(int id){
-        //String id = "41";
-        List<Roll> rolls = new Model.Finder(String.class, Roll.class).where().idEq(id).findList();
-
-        return String.valueOf(toJson(rolls));
-    }
-
     public static List<String> getModel() throws ClassNotFoundException {
 
         List<String> model = new ArrayList<>();
 
-        model.add(String.valueOf(Roll.class));
+        model.add(String.valueOf(Product.class));
 
         return model;
 

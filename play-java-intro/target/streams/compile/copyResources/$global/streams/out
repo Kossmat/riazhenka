@@ -1,0 +1,6 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/application.conf,/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/evolutions,/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/routes,/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/evolutions/default,/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/conf/evolutions/default/1.sql,/Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/target/scala-2.11/classes/evolutions/default/1.sql)[0m

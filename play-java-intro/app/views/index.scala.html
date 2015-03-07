@@ -2,40 +2,268 @@
 
 @main("Welcome to Play") {
 
-<style type="text/css">
-    .product--image{
-        width: 200px;
-        heigh:200px;
-    }
-</style>
-
+<body>
 <h2>@message</h2>
 
-<div style="margin: 0 auto">
+<header class="base-header">
 
-    <ul>
-        @for(item <- content){
+    <a href="#">
+        <img class="logo" src='@routes.Assets.at("images/logo.png")'>
+    </a>
 
-            <li class="product" style="list-style: none; display: inline-block; padding-right:6px; max-width: 33.33333%">
-                <section>
-                    <figure>
-                        <img class="product--image" src=@{val a = item.get("Id"); routes.Application.renderImage(""+a)} alt=""/>
-                        <figcaption class="product--about">
-                            <h3 class="product--name">@item.get("name")</h3>
-                            <p class="product--description">@item.get("description")</p>
-                            <button class="btn" style="padding: 5px; text-transform: uppercase; font-weight: 600;">
-                                Купить
-                            </button>
-                                <span class="product--price">
-                                    @item.get("price") rub
-                                </span>
-                        </figcaption>
-                    </figure>
-                </section>
+
+    <section class="phone-number">
+        <h1>(+495)777-77-77</h1>
+        <p>доставка бесплатно</p>
+    </section> <!-- end phone-number -->
+
+    <section class="contact">
+        <div class="login">
+            <button class="btn" type="">Регистрация</button>
+            <button class="btn" type="">Залогиниться</button>
+        </div>
+
+        <div class="basket">
+            <p>Корзина</p>
+            <input type="text" name="" value="" placeholder="0 товаров 0 рублей">
+            <button class="btn" type="">оформить заказ</button>
+        </div>
+    </section> <!-- end contact -->
+
+    <nav>
+        <ul class="menu">
+            <li><a href="">Меню</li>
+            <li><a href="">О доставке</a></li>
+            <li><a href="">Акции</a></li>
+            <li><a href="">Новости</a></li>
+            <li><a href="">О компании</a></li>
+            <li><a href="">Отзывы</a></li>
+            <li><input type="search" name="q" placeholder="Поиск">
+                <input type="submit" value="Найти"></li>
+        </ul> <!-- end menu -->
+    </nav>
+
+</header> <!-- end header -->
+
+<section class="banner" style='background: #F39C12 url(@routes.Assets.at("images/banners/banner.jpg")); background-repeat: no-repeat; background-size: cover;'>
+    <article class="banner-wrapper">
+
+        <h1>
+            let us make your lives easier
+        </h1>
+
+        <p>
+            We specialize in crafting awesome ideas for web, mobile and beyond.
+        </p>
+
+        <button class="btn"><i class="fa fa-chevron-down"></i>
+        </button>
+    </article>
+
+</section> <!-- end banner -->
+
+
+
+<main>
+
+    <section class="testimonials">
+        <ul>
+            <li>
+                <h3>Отзыв о</h3>
+                <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
+                </p>
             </li>
+            <li>
+                <h3>Отзыв о</h3>
+                <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
+                </p>
+            </li>
+            <li>
+                <h3>Отзыв о</h3>
+                <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
+                </p>
+            </li>
+            <li>
+                <h3>Отзыв о</h3>
+                <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
+                </p>
+            </li>
+        </ul>
+    </section> <!-- end testimonials -->
 
-        }
-    </ul>
+    <section class="product--block">
 
-</div>
+        <aside class="product--offer">
+            <div class="product--day">
+                <h3>Ограниченное предложение</h3>
+                <a href=""><img src="img/offer.png" alt=""></a>
+            </div>
+
+            <div class="product--timer">
+                <h3>Таймер</h3>
+                <a href=""><img src="img/offer.png" alt=""></a>
+            </div>
+
+            <div class="product--day2">
+                <h3>Напиток дня</h3>
+                <a href=""><img src="img/offer.png" alt=""></a>
+            </div>
+
+            <div class="product--testimonial">
+                <h3>Комент дня</h3>
+                <a href=""><img src="img/offer.png" alt=""></a>
+            </div>
+        </aside>  <!-- end product-offer -->
+
+        <section class="product--main">
+            <header class="product--header">
+                <!--ul class="product-type">
+                    <h2>Пиво</h2>
+                    <li><a href="">Светлое</a></li>
+                    <li><a href="">Тёмное</a></li>
+                    <li><a href="">Напитки</a></li>
+                </ul-->
+
+                <ul class="product--type">
+                    <li>Суши</li>
+                    <li><a href="">Суши</a></li>
+                    <li><a href="">Сашими</a></li>
+                    <li><a href="">Ролы</a></li>
+                    <li><a href="">Сеты</a></li>
+                </ul>
+            </header> <!-- end product-header -->
+
+            <ul class="product">
+                @for(item <- content){
+                    <li class="product--item">
+                        <figure>
+                            <img class="product--image" src=@{val a = item.get("imgSrc"); routes.Assets.at(""+a)} alt=""/>
+
+                            <figcaption class="product--about">
+                                <h3 class="product--name">@item.get("name")</h3>
+                                <p class="product--description"><strong>Lorem ipsum</strong>@item.get("description")
+                                </p>
+                                <button class="btn">
+                                    Купить
+                                </button>
+                                    <span class="product--price">
+                                        @item.get("price") rub
+                                    </span>
+                            </figcaption>
+                        </figure>
+                    </li> <!-- end product-item -->
+                }
+            </ul>
+        </section> <!-- end product-main -->
+    </section> <!-- end product-block -->
+
+
+
+    <section class="product--line">
+        <header class="product--header">
+            <ul class="product-type">
+                <li>Пыво</li>
+                <li><a href="">Светлое</a></li>
+                <li><a href="">Тёмное</a></li>
+                <li><a href="">Напитки</a></li>
+            </ul>
+        </header> <!-- /header -->
+
+        <!--<ul class="product--type">-->
+            <!--<li class="product--item">-->
+                <!--<figure>-->
+                    <!--<img class="product--image" src={val a = item.get("imgSrc"); routes.Assets.at(""+a)} alt=""/>-->
+
+                    <!--<figcaption class="product--about">-->
+                        <!--<h3 class="product--name">item.get("name")</h3>-->
+                        <!--<p class="product--description"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit adipiscing elit-->
+                        <!--</p>-->
+                        <!--<button class="btn">-->
+                            <!--Купить-->
+                        <!--</button>-->
+                                <!--<span class="product--price">-->
+                                    <!--item.get("price") rub-->
+                                <!--</span>-->
+                    <!--</figcaption>-->
+                <!--</figure>-->
+            <!--</li> &lt;!&ndash; end product-item &ndash;&gt;-->
+
+        </ul>
+    </section>  <!-- end product-line -->
+
+
+    <nav>
+        <ul class="menu">
+            <li><a href="">Меню</li>
+            <li><a href="">О доставке</a></li>
+            <li><a href="">Акции</a></li>
+            <li><a href="">Новости</a></li>
+            <li><a href="">О компании</a></li>
+            <li><a href="">Отзывы</a></li>
+            <li><input type="search" name="q" placeholder="Поиск">
+                <input type="submit" value="Найти"></li>
+        </ul> <!-- end menu -->
+    </nav>
+</main>
+
+
+<footer class="base-footer">
+
+    <section class="base-footer-wrapper">
+        <div>
+            <adress>
+                <span>Доставка</span> Суши на дом
+            </adress></br>
+            <adress class="base-footer-copyright">Copyright © 2015 KossMos
+            </adress>
+        </div>
+
+        <div class="product--menu">
+            <h3>Пыво</h3>
+            <ul>
+                <li>товар 1</li>
+                <li>товар 2</li>
+                <li>товар 3</li>
+            </ul>
+        </div>
+
+        <div class="product--menu">
+            <h3>Суши</h3>
+            <ul>
+                <li>товар 1</li>
+                <li>товар 2</li>
+                <li>товар 3</li>
+            </ul>
+        </div>
+
+        <div class="delivery">
+            <a href=""><img src='@routes.Assets.at("images/delivery.png")' alt=""></a>
+        </div>
+
+    </section>
+</footer> <!-- end base-footer -->
+
+
+<!--  [ scripts ]  -->
+<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<!--<script src="js/plugins.js"></script>-->
+<!--<script src="js/main.js"></script>-->
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+</body>
+
 }

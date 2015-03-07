@@ -1,57 +1,9 @@
-2015-02-23 00:41:42,316 - [INFO] - from play in pool-6-thread-4 
+2015-03-07 19:18:29,282 - [INFO] - from play in pool-4-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-02-23 00:41:53,838 - [INFO] - from play in play-internal-execution-context-1 
+2015-03-07 19:18:38,458 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
 
-2015-02-23 00:41:59,741 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-02-23 00:43:10,941 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
-
-2015-02-23 00:43:11,028 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-02-23 00:44:08,024 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
-
-2015-02-23 00:44:08,072 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-02-23 00:44:37,184 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
-
-2015-02-23 00:44:37,251 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-02-23 00:45:26,812 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
-
-2015-02-23 00:45:26,855 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-02-23 00:45:54,285 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
-
-2015-02-23 00:45:54,322 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-02-23 00:48:52,513 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
-
-2015-02-23 00:48:52,563 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-02-23 00:50:13,051 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
-
-2015-02-23 00:50:13,136 - [INFO] - from play in play-internal-execution-context-2 
-Application started (Dev)
-
-2015-02-23 00:50:41,230 - [INFO] - from play in play-internal-execution-context-2 
-database [default] connected at jdbc:h2:./DB/h2-1.4.185.jar
-
-2015-02-23 00:50:41,269 - [INFO] - from play in play-internal-execution-context-2 
+2015-03-07 19:18:44,428 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 

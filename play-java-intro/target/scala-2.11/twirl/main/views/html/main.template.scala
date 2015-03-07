@@ -28,27 +28,29 @@ object main extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Forma
 
 Seq[Any](format.raw/*1.32*/("""
 
-"""),format.raw/*3.1*/("""<!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
-<script src='"""),_display_(/*4.15*/routes/*4.21*/.Assets.at("javascripts/Guriddo_jqGrid_JS_4.7.1/js/jquery-1.11.0.min.js")),format.raw/*4.94*/("""' type="text/javascript"></script>
+"""),format.raw/*3.1*/("""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Riazhenka</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--for work with ajax-->
-<script type="text/javascript" src='"""),_display_(/*7.38*/routes/*7.44*/.JsAjax.javascriptRoutes()),format.raw/*7.70*/("""'></script>
-
-"""),_display_(/*9.2*/content),format.raw/*9.9*/("""
-
-"""),format.raw/*11.1*/("""<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-	<!--<meta charset="UTF-8">-->
-	<!--<title>"""),_display_(/*15.14*/title),format.raw/*15.19*/("""</title>-->
-	<!--<link rel="stylesheet" media="screen" href=""""),_display_(/*16.51*/routes/*16.57*/.Assets.at("stylesheets/main.css")),format.raw/*16.91*/("""">-->
-    <!--<link rel="shortcut icon" type="image/png" href=""""),_display_(/*17.59*/routes/*17.65*/.Assets.at("images/favicon.png")),format.raw/*17.97*/("""">-->
-    <!--<script src=""""),_display_(/*18.23*/routes/*18.29*/.Assets.at("javascripts/hello.js")),format.raw/*18.63*/("""" type="text/javascript"></script>-->
-<!--</head>-->
-<!--<body>-->
+    <link href='"""),_display_(/*12.18*/routes/*12.24*/.Assets.at("stylesheets/style.css")),format.raw/*12.59*/("""' rel="stylesheet">
+    <link rel="stylesheet" href='"""),_display_(/*13.35*/routes/*13.41*/.Assets.at("stylesheets/font-awesome-4.3.0/css/font-awesome.css")),format.raw/*13.106*/("""' type="text/css">
 
 
-<!--</body>-->
+    <!--for work with ajax-->
+    <script type="text/javascript" src='"""),_display_(/*17.42*/routes/*17.48*/.JsAjax.javascriptRoutes()),format.raw/*17.74*/("""'></script>
+
+    <script src='"""),_display_(/*19.19*/routes/*19.25*/.Assets.at("javascripts/Guriddo_jqGrid_JS_4.7.1/js/jquery-1.11.0.min.js")),format.raw/*19.98*/("""' type="text/javascript"></script>
+</head>
+
+
+    """),_display_(/*23.6*/content),format.raw/*23.13*/("""
+
+"""),format.raw/*25.1*/("""</html>
 """))}
   }
 
@@ -61,11 +63,11 @@ Seq[Any](format.raw/*1.32*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Mon Feb 23 00:53:15 MSK 2015
+                  DATE: Sat Mar 07 17:21:41 MSK 2015
                   SOURCE: /Users/eldorado/Desktop/activator-1.2.12-minimal/play-java-intro/app/views/main.scala.html
-                  HASH: e2a368d696b5c8e65d1655dd72c796f22c7d82e8
-                  MATRIX: 727->1|845->31|873->33|1011->145|1025->151|1118->224|1243->323|1257->329|1303->355|1342->369|1368->376|1397->378|1529->483|1555->488|1644->550|1659->556|1714->590|1805->654|1820->660|1873->692|1928->720|1943->726|1998->760
-                  LINES: 26->1|29->1|31->3|32->4|32->4|32->4|35->7|35->7|35->7|37->9|37->9|39->11|43->15|43->15|44->16|44->16|44->16|45->17|45->17|45->17|46->18|46->18|46->18
+                  HASH: 8a31c511ec923cf11153d257dfe2f327ab846450
+                  MATRIX: 727->1|845->31|873->33|1186->319|1201->325|1257->360|1338->414|1353->420|1440->485|1559->577|1574->583|1621->609|1679->640|1694->646|1788->719|1864->769|1892->776|1921->778
+                  LINES: 26->1|29->1|31->3|40->12|40->12|40->12|41->13|41->13|41->13|45->17|45->17|45->17|47->19|47->19|47->19|51->23|51->23|53->25
                   -- GENERATED --
               */
           
